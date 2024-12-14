@@ -24,7 +24,8 @@ for(moves in 1:(101*103)) {
   robot_table[,col := (start_col+vel_col*moves)%%cols]
   robot_table[,row := (start_row+vel_row*moves)%%rows]
   
-  if(nrow(robot_table[col == 62]) > 30 & nrow(robot_table[col == 32]) > 30) {
+  if(nrow(robot_table[col == 62]) > 30 & nrow(robot_table[col == 32]) > 30 & nrow(robot_table[row == 38]) > 30 & nrow(robot_table[row == 70]) > 30) {
+    print("I found the tree!")
     print(ggplot(robot_table,aes(x = row,y=col)) + geom_point() + labs(title = moves))
   }
   
